@@ -129,7 +129,7 @@ good to go!
 
 struct IntType;
 struct DoubleType;
-struct FloatTYpe; 
+struct FloatType; 
 
 struct FloatType
 {
