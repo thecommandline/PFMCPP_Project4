@@ -128,11 +128,6 @@ struct FloatType;
 struct FloatType
 {
     FloatType(float f) : value(new float(f)) {}
-    ~FloatType()
-    {
-        value = nullptr;
-        delete value;
-    } 
 
     FloatType& add(float lhs);
     FloatType& subtract(float lhs);
@@ -151,11 +146,6 @@ private:
 struct DoubleType
 {
     DoubleType(double d) : value(new double(d)) {}
-    ~DoubleType()
-    {
-        value = nullptr;
-        delete value;
-    } 
 
     DoubleType& add(double lhs);
     DoubleType& subtract(double lhs);
@@ -174,11 +164,6 @@ private:
 struct IntType
 {
     IntType(int i) : value(new int(i)) {}
-    ~IntType()
-    {
-        value = nullptr;
-        delete value;
-    } 
 
     IntType& add(int lhs);
     IntType& subtract(int lhs);
