@@ -318,7 +318,7 @@ struct Numeric
         else if (rhs < std::numeric_limits<float>::epsilon())
         {
             std::cout << "warning: floating point division by zero!" << std::endl;
-            *value /= rhs;
+            *value /= static_cast<T>(rhs);
             return *this;
         }
 
@@ -544,7 +544,7 @@ void part4()
     // Power tests with FloatType
     std::cout << "Power tests with Numeric" << std::endl;
     std::cout << "pow(ft1, floatExp) = " << ft1 << "^" << floatExp << " = " << ft1.pow(floatExp)  << std::endl;
-    std::cout << "pow(ft1, itExp) = " << ft1 << "^" << itExp << " = " << ft1.pow(itExp)  << std::endl;
+    std::cout << "pow(ft1, itExp) = " << ft1 << "^" << itExp << " = " << ft1.pow(static_cast<float>(itExp))  << std::endl;
     std::cout << "pow(ft1, ftExp) = " << ft1 << "^" << ftExp << " = " << ft1.pow(ftExp)  << std::endl;
     std::cout << "pow(ft1, dtExp) = " << ft1 << "^" << dtExp << " = " << ft1.pow(static_cast<float>(dtExp))  << std::endl;
     std::cout << "---------------------\n" << std::endl;
