@@ -542,7 +542,7 @@ void part4()
     Numeric<double> dtExp(2.0);
     
     // Power tests with FloatType
-    std::cout << "Power tests with Numeric" << std::endl;
+    std::cout << "Power tests with Numeric " << std::endl;
     std::cout << "pow(ft1, floatExp) = " << ft1 << "^" << floatExp << " = " << ft1.pow(floatExp)  << std::endl;
     std::cout << "pow(ft1, itExp) = " << ft1 << "^" << itExp << " = " << ft1.pow(static_cast<float>(itExp))  << std::endl;
     std::cout << "pow(ft1, ftExp) = " << ft1 << "^" << ftExp << " = " << ft1.pow(ftExp)  << std::endl;
@@ -550,7 +550,7 @@ void part4()
     std::cout << "---------------------\n" << std::endl;
 
     // Power tests with DoubleType
-    std::cout << "Power tests with Numeric" << std::endl;
+    std::cout << "Power tests with Numeric " << std::endl;
     std::cout << "pow(dt1, doubleExp) = " << dt1 << "^" << doubleExp << " = " << dt1.pow(intExp)  << std::endl;
     std::cout << "pow(dt1, itExp) = " << dt1 << "^" << itExp << " = " << dt1.pow(itExp)  << std::endl;
     std::cout << "pow(dt1, ftExp) = " << dt1 << "^" << ftExp << " = " << dt1.pow(static_cast<double>(ftExp))  << std::endl;
@@ -558,7 +558,7 @@ void part4()
     std::cout << "---------------------\n" << std::endl;
 
     // Power tests with IntType
-    std::cout << "Power tests with Numeric" << std::endl;
+    std::cout << "Power tests with Numeric " << std::endl;
     std::cout << "pow(it1, intExp) = " << it1 << "^" << intExp << " = " << it1.pow(intExp)  << std::endl;
     std::cout << "pow(it1, itExp) = " << it1 << "^" << itExp << " = " << it1.pow(itExp)  << std::endl;
     std::cout << "pow(it1, ftExp) = " << it1 << "^" << ftExp << " = " << it1.pow(static_cast<int>(ftExp))  << std::endl;
