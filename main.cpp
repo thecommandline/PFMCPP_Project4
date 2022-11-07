@@ -286,8 +286,6 @@ struct Numeric
         else if (rhs < std::numeric_limits<Type>::epsilon())
         {
             std::cout << "warning: floating point division by zero!" << std::endl;
-            *value /= static_cast<Type>(rhs);
-            return *this;
         }
 
         *value /= static_cast<Type>(rhs);
