@@ -209,38 +209,6 @@ Use a service like https://www.diffchecker.com/diff to compare your output.
 #include <functional>
 #include <memory>
 
-struct FloatTYpe;
-struct DoubleType;
-struct IntTYpe;
-template<typename T>
-struct Numeric;
-
-struct Point
-{
-    Point(float x, float y);
-    explicit Point(Numeric<float>& x);
-    explicit Point(Numeric<double>& x);
-    explicit Point(Numeric<int>& x);
-    
-    
-    Point& multiply(float m)
-    {
-        x *= m;
-        y *= m;
-        return *this;
-    }
-
-    Point& multiply(Numeric<float>& m);
-    Point& multiply(Numeric<double>& m);
-    Point& multiply(Numeric<int>& m);
-    void toString();
-
-private:
-    float x{0}, y{0};
-};
-
-
-
 struct A {};
 struct HeapA
 { 
@@ -296,12 +264,12 @@ struct Numeric
     }
     
     
-    template<typename P>
-    Numeric& operator/=(P rhs)
+    template<typename Param>
+    Numeric& operator/=(Param rhs)
     {
         if constexpr(std::is_same<int, Type>::value)
         {
-            if constexpr(std::is_same<int, P>::value)
+            if constexpr(std::is_same<int, Param>::value)
             {
                 if(rhs == 0)
                 {
@@ -309,20 +277,20 @@ struct Numeric
                     return *this;
                 }
             }
-            else if (static_cast<float>(rhs) < std::numeric_limits<float>::epsilon())
+            else if (rhs < std::numeric_limits<Param>::epsilon())
             {
                 std::cout << "can't divide integers by zero!" << std::endl;
                 return *this;
             }
         }
-        else if (static_cast<float>(rhs) < std::numeric_limits<float>::epsilon())
+        else if (rhs < std::numeric_limits<Type>::epsilon())
         {
             std::cout << "warning: floating point division by zero!" << std::endl;
-            *value /= static_cast<T>(rhs);
+            *value /= static_cast<Type>(rhs);
             return *this;
         }
 
-        *value /= static_cast<T>(rhs);
+        *value /= static_cast<Type>(rhs);
         return *this;
     }
 
@@ -447,6 +415,30 @@ private:
         *value = std::pow( *base, exp );
         return *this;
     }
+};
+
+struct Point
+{
+    Point(float x, float y);
+    explicit Point(Numeric<float>& x);
+    explicit Point(Numeric<double>& x);
+    explicit Point(Numeric<int>& x);
+    
+    
+    Point& multiply(float m)
+    {
+        x *= m;
+        y *= m;
+        return *this;
+    }
+
+    Point& multiply(Numeric<float>& m);
+    Point& multiply(Numeric<double>& m);
+    Point& multiply(Numeric<int>& m);
+    void toString();
+
+private:
+    float x{0}, y{0};
 };
 
 
