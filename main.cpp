@@ -264,12 +264,12 @@ struct Numeric
     }
     
     
-    template<typename Param>
-    Numeric& operator/=(Param rhs)
+    template<typename OtherType>
+    Numeric& operator/=(OtherType rhs)
     {
         if constexpr(std::is_same<int, Type>::value)
         {
-            if constexpr(std::is_same<int, Param>::value)
+            if constexpr(std::is_same<int, OtherType>::value)
             {
                 if(rhs == 0)
                 {
@@ -277,7 +277,7 @@ struct Numeric
                     return *this;
                 }
             }
-            else if (rhs < std::numeric_limits<Param>::epsilon())
+            else if (rhs < std::numeric_limits<OtherType>::epsilon())
             {
                 std::cout << "can't divide integers by zero!" << std::endl;
                 return *this;
