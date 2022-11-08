@@ -787,10 +787,10 @@ int main()
     it /= 0;
     std::cout << it << std::endl;
     std::cout << "New value of ft = ft / 0 = ";
-    ft /= 0;
+    ft /= 0.f;
     std::cout << ft << std::endl;
     std::cout << "New value of dt = dt / 0 = ";
-    dt /= 0;
+    dt /= 0.0;
     std::cout << dt << std::endl;
 
     std::cout << "---------------------\n" << std::endl; 
